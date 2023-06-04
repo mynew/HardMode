@@ -37,27 +37,27 @@ struct HardModePlayerSettings
 
 enum HardModeRestrictions
 {
-    HARDMODE_RESTRICT_NONE =                        0,  // Used internally, DO NOT USE
-    HARDMODE_RESTRICT_RETAIL_XP =                   1,  // 2: The player can only receive 1x exp rates from kills, quests, etc..
-    HARDMODE_RESTRICT_SELFCRAFTED =                 2,  // 4: The player can only use self-crafted items (armor, weapons, consumables, etc..)
-    HARDMODE_RESTRICT_INTERACT_AUCTION =            3,  // 8: The player cannot interact with the auction house.
-    HARDMODE_RESTRICT_INTERACT_GUILDBANK =          4,  // 16: The player cannot interact with the guild bank.
-    HARDMODE_RESTRICT_INTERACT_MAIL_SEND =          5,  // 32: The player cannot send mail.
-    HARDMODE_RESTRICT_INTERACT_MAIL_RECEIVE =       6,  // 64: The player cannot receive mail.
-    HARDMODE_RESTRICT_INTERACT_TRADE =              7,  // 128: The player cannot trade/be traded.
-    HARDMODE_RESTRICT_PERMADEATH =                  8,  // 256: The player is sent to the shadow tomb on death.
-    HARDMODE_RESTRICT_HIDE_WHOLIST =                9,  // 512: The players location is hidden on the who list.
-    HARDMODE_RESTRICT_HIDE_FRIENDS =                10, // 1024, The players location is hidden on the friends list.
-    HARDMODE_RESTRICT_HIDE_GUILD =                  11, // 2048, The players location is hidden on the guild roster.
-    HARDMODE_RESTRICT_INTERACT_LFG =                12, // 4096, The player cannot queue for LFG.
-    HARDMODE_RESTRICT_INTERACT_GROUP =              13, // 8192, The player cannot join groups.
-    HARDMODE_RESTRICT_INTERACT_GROUP_CROSSPLAY =    14, // 16384 The player can only group with matching modes.
-    HARDMODE_RESTRICT_BAD_LUCK =                    15, // 32768 The player has bad luck with loot drops.
-    HARDMODE_RESTRICT_PACIFIST =                    16, // 65536 The player loses the mode if they damage or kill units.
-    HARDMODE_RESTRICT_INTERACT_GROUP_RANGE =        17, // 131072 The player can only group with other players within x (default 3) levels from themself.
-    HARDMODE_RESTRICT_INTERACT_TALENTS =            18, // 262144 The player cannot use talent points.
-    HARDMODE_RESTRICT_SMALLFISH =                   19, // 524288 The player is half the size, speed and deals half as much damage.
-    HARDMODE_RESTRICT_COUNT =                       20,  // Used internally. DO NOT USE
+	HARDMODE_RESTRICT_NONE =                        0,  // 用于内部，不要使用
+	HARDMODE_RESTRICT_RETAIL_XP =                   1,  // 2: 玩家只能从击杀、任务等获得1倍的经验值
+	HARDMODE_RESTRICT_SELFCRAFTED =                 2,  // 4: 玩家只能使用自己制作的物品（装备，武器，消耗品等）
+	HARDMODE_RESTRICT_INTERACT_AUCTION =            3,  // 8: 玩家不能与拍卖行互动
+	HARDMODE_RESTRICT_INTERACT_GUILDBANK =          4,  // 16: 玩家不能与公会银行互动
+	HARDMODE_RESTRICT_INTERACT_MAIL_SEND =          5,  // 32: 玩家不能发送邮件
+	HARDMODE_RESTRICT_INTERACT_MAIL_RECEIVE =       6,  // 64: 玩家不能接收邮件
+	HARDMODE_RESTRICT_INTERACT_TRADE =              7,  // 128: 玩家不能进行交易/被交易
+	HARDMODE_RESTRICT_PERMADEATH =                  8,  // 256: 玩家死亡后将被送到阴影墓地
+	HARDMODE_RESTRICT_HIDE_WHOLIST =                9,  // 512: 玩家的位置在谁名单上被隐藏
+	HARDMODE_RESTRICT_HIDE_FRIENDS =                10, // 1024, 玩家的位置在好友名单上被隐藏
+	HARDMODE_RESTRICT_HIDE_GUILD =                  11, // 2048, 玩家的位置在公会名册上被隐藏
+	HARDMODE_RESTRICT_INTERACT_LFG =                12, // 4096, 玩家不能排队LFG
+	HARDMODE_RESTRICT_INTERACT_GROUP =              13, // 8192, 玩家不能加入团队
+	HARDMODE_RESTRICT_INTERACT_GROUP_CROSSPLAY =    14, // 16384 玩家只能与相同模式的玩家组队
+	HARDMODE_RESTRICT_BAD_LUCK =                    15, // 32768 玩家在战利品掉落上运气不好
+	HARDMODE_RESTRICT_PACIFIST =                    16, // 65536 如果玩家伤害或杀死单位，他们会失去模式
+	HARDMODE_RESTRICT_INTERACT_GROUP_RANGE =        17, // 131072 玩家只能与他们自己的x（默认为3）级别范围内的其他玩家组队
+	HARDMODE_RESTRICT_INTERACT_TALENTS =            18, // 262144 玩家不能使用天赋点
+	HARDMODE_RESTRICT_SMALLFISH =                   19, // 524288 玩家的体型，速度和伤害都减半
+	HARDMODE_RESTRICT_COUNT =                       20,  // 用于内部。不要使用
 };
 
 enum HardModeRewardType

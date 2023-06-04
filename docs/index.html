@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Hardmode Documentation</title>
+        <title>困难模式 文档</title>
         <link rel="stylesheet" href="./style.css">
         <script src="./bitmask.js"></script>
     </head>
@@ -11,223 +11,223 @@
         <div class="container">
             <div class="logo">
                 <img src="./logo.png">
-                <div class="header">HardMode</div>
+                <div class="header">困难模式</div>
             </div>
             <div class="menu">
-                <a href="#about">About</a>
-                <a href="#mode-editor">Mode Editor</a>
-                <a href="#contact">Contact</a>
+                <a href="#about">关于</a>
+                <a href="#mode-editor">模式编辑器</a>
+                <a href="#contact">联系方式</a>
             </div>
             <div class="content">
                 <div class="sections">
                     <section id="about">
                         <div class="header">
-                            About
+                            关于
                         </div>
                         <div class="body">
-                            The HardMode module gives server owners the tools to create their own HardModes without writing a line of C++/Lua, and is entirely possible within the database.
+                            HardMode 模块为服务器所有者提供了创建自己的 HardMode 的工具，无需编写一行 C++/Lua 代码，完全可以通过数据库实现。
                         </div>
                     </section>
                     <section id="mode-editor">
                         <div class="header">
-                            Mode Editor
+                            模式编辑器
                         </div>
                         <div class="body">
-                            This section will help you create your first hard mode, before you can create a mode you need to come up with a name, choose a color, description & restrictions.<br>
-                            <div class="sub-header">
-                                <label for="mode-name">Name</label>
+                            这个部分将帮助您创建您的第一个困难模式，在创建模式之前，您需要想出一个名称，选择一种颜色，描述和限制。<br>
+							<div class="sub-header">
+								<label for="mode-name">名称</label>
                             </div>
                             <div class="name-picker">
-                                <input id="mode-name" type="text" placeholder="Name">
+                                <input id="mode-name" type="text" placeholder="名称">
                                 <button id="mode-color-button" class="color-picker" type="button" onclick="openColorPicker()"></button>
                                 <input id="mode-color" type="color" style="display: none">
                             </div>
                             <div class="sub-header">
-                                <label for="mode-desc">Description</label>
+                                <label for="mode-desc">描述</label>
                             </div>
                             <div class="sub-body">
-                                <input id="mode-desc" type="text" placeholder="Description">
+                                <input id="mode-desc" type="text" placeholder="描述">
                             </div>
                             <div class="sub-header">
-                                Restrictions
+                                限制
                             </div>
-                            To enable restrictions for your modes you need to create a bitmask to store in the <div class="highlight-dark">restrictions</div> column of the <div class="highlight-dark">hardmode_modes</div> table.<br><br>
-                            Tick the restrictions you would like to use below and copy the bitmask result into the <div class="highlight-dark">restrictions</div> table column for your mode, or generate the SQL and apply it yourself.
+                            要为您的模式启用限制，您需要创建一个位掩码并将其存储在 <div class="highlight-dark">hardmode_modes</div> 表的 <div class="highlight-dark">限制</div> 列中。<br><br>
+                            在下面勾选您想要使用的限制，并将位掩码结果复制到您的模式的 <div class="highlight-dark">限制</div> 表列中，或者生成相应的 SQL 并自行应用。
                         </div>
                         <div class="body-item">
-                            <input id="bitmask-edit" type="text" placeholder="Bitmask"><button class="nice-button" type="button" onclick="loadMask()">Edit</button>
+                            <input id="bitmask-edit" type="text" placeholder="位掩码"><button class="nice-button" type="button" onclick="loadMask()">编辑</button>
                         </div>
                         <div class="bitmask-options">
                             <div class="bitmask-option">
                                 <input id="hmr_retailxp" type="checkbox">
-                                <label for="hmr_retailxp"> Retail XP (2)</label>
+                                <label for="hmr_retailxp"> 零售经验 (2)</label>
                                 <div class="sub-body">
-                                    Enables 1x rates for kill, quest, exploration.
+                                    启用1倍的击杀、任务和探索经验值。
                                 </div>
                             </div>
                             
                             <div class="bitmask-option">
                                 <input id="hmr_selfcrafted" type="checkbox">
-                                <label for="hmr_selfcrafted"> Self Crafted (4)</label>
+                                <label for="hmr_selfcrafted"> 自制物品 (4)</label>
                                 <div class="sub-body">
-                                    Disables the use of items/equipment that are not crafted by the player.
+                                    禁止使用非玩家自制的物品/装备。
                                 </div>
                             </div>
 
                             <div class="bitmask-option">
                                 <input id="hmr_int_auction" type="checkbox">
-                                <label for="hmr_int_auction"> Interact Auction House (8)</label>
+                                <label for="hmr_int_auction"> 与拍卖行交互 (8)</label>
                                 <div class="sub-body">
-                                    Disables the interaction with the auction house NPC.
+                                    禁止与拍卖行 NPC 进行交互。
                                 </div>
                             </div>
 
                             <div class="bitmask-option">
                                 <input id="hmr_int_gbank" type="checkbox">
-                                <label for="hmr_int_gbank"> Interact Guild Bank (16)</label>
+                                <label for="hmr_int_gbank"> 与公会银行交互 (16)</label>
                                 <div class="sub-body">
-                                    Disables the interaction with the guild bank.
+                                    禁止与公会银行进行交互。
                                 </div>
                             </div>
 
                             <div class="bitmask-option">
                                 <input id="hmr_int_msend" type="checkbox">
-                                <label for="hmr_int_msend"> Interact Mail Send (32)</label>
+                                <label for="hmr_int_msend"> 与邮件发送交互 (32)</label>
                                 <div class="sub-body">
-                                    Disables sending of mail to other players.
+                                    禁止向其他玩家发送邮件。
                                 </div>
                             </div>
 
                             <div class="bitmask-option">
                                 <input id="hmr_int_mrec" type="checkbox">
-                                <label for="hmr_int_mrec"> Interact Mail Receive (64)</label>
+                                <label for="hmr_int_mrec"> 与邮件接收交互 (64)</label>
                                 <div class="sub-body">
-                                    Disables receiving of mail from other players.
+                                    禁止接收其他玩家发送的邮件。
                                 </div>
                             </div>
 
                             <div class="bitmask-option">
                                 <input id="hmr_int_trade" type="checkbox">
-                                <label for="hmr_int_trade"> Interact Trade (128)</label>
+                                <label for="hmr_int_trade"> 与交易交互 (128)</label>
                                 <div class="sub-body">
-                                    Disables trading to/from other players.
+                                    禁止与其他玩家进行交易。
                                 </div>
                             </div>
 
                             <div class="bitmask-option">
                                 <input id="hmr_permadeath" type="checkbox">
-                                <label for="hmr_permadeath"> Permadeath (256)</label>
+                                <label for="hmr_permadeath"> 永久死亡 (256)</label>
                                 <div class="sub-body">
-                                    The player is sent to the shadow realm on death (you cannot leave the shadow realm).
+                                    玩家死亡后被送到暗影领域（无法离开暗影领域）。
                                 </div>
                             </div>
 
                             <div class="bitmask-option">
                                 <input id="hmr_hide_who" type="checkbox">
-                                <label for="hmr_hide_who"> Hide Who List (512)</label>
+                                <label for="hmr_hide_who"> 隐藏在线列表 (512)</label>
                                 <div class="sub-body">
-                                    The player is hidden from the who list (shows unknown location).
+                                    玩家在在线列表中隐藏（显示位置未知）。
                                 </div>
                             </div>
 
                             <div class="bitmask-option">
                                 <input id="hmr_hide_friends" type="checkbox">
-                                <label for="hmr_hide_friends"> Hide Friends List (1024)</label>
+                                <label for="hmr_hide_friends"> 隐藏好友列表 (1024)</label>
                                 <div class="sub-body">
-                                    The player is hidden from the friends list (shows unknown location).
+                                    玩家在好友列表中隐藏（显示位置未知）。
                                 </div>
                             </div>
 
                             <div class="bitmask-option">
                                 <input id="hmr_hide_guild" type="checkbox">
-                                <label for="hmr_hide_guild"> Hide Guild List (2048)</label>
+                                <label for="hmr_hide_guild"> 隐藏公会列表 (2048)</label>
                                 <div class="sub-body">
-                                    The player is hidden from the guild member roster (shows unknown location).
+                                    玩家在公会成员名单中隐藏（显示位置未知）。
                                 </div>
                             </div>
 
                             <div class="bitmask-option">
                                 <input id="hmr_int_lfg" type="checkbox">
-                                <label for="hmr_int_lfg"> Interact LFG (4096)</label>
+                                <label for="hmr_int_lfg"> 与寻求组队交互 (4096)</label>
                                 <div class="sub-body">
-                                    The player cannot queue for looking for group.
+                                    玩家无法加入寻求组队。
                                 </div>
                             </div>
 
                             <div class="bitmask-option">
                                 <input id="hmr_int_grp" type="checkbox">
-                                <label for="hmr_int_grp"> Interact Group (8192)</label>
+                                <label for="hmr_int_grp"> 与组队交互 (8192)</label>
                                 <div class="sub-body">
-                                    The player cannot group with other players.
+                                    玩家无法与其他玩家组队。
                                 </div>
                             </div>
 
                             <div class="bitmask-option">
                                 <input id="hmr_int_crossplay" type="checkbox">
-                                <label for="hmr_int_crossplay"> Interact Cross-Play (16384)</label>
+                                <label for="hmr_int_crossplay"> 玩家组队要求 (16384)</label>
                                 <div class="sub-body">
-                                    The player can only group with other players with the same cross-play modes as them (all the modes with this flag enabled).
+                                    玩家只能与具有与他们相同的特殊游戏模式的其他玩家组队（启用此标志的所有模式）。
                                 </div>
                             </div>
 
                             <div class="bitmask-option">
                                 <input id="hmr_unlucky" type="checkbox">
-                                <label for="hmr_unlucky"> Unlucky (32768)</label>
+                                <label for="hmr_unlucky"> 倒霉 (32768)</label>
                                 <div class="sub-body">
-                                    The player is unlucky with loot drops (there is a configurable chance for items to drop, quest items are unaffected).
+                                    降低玩家的战利品掉落（有一个可配置的几率掉落物品，任务物品不受影响）。
                                 </div>
                             </div>
 
                             <div class="bitmask-option">
                                 <input id="hmr_pacifist" type="checkbox">
-                                <label for="hmr_pacifist"> Pacifist (65536)</label>
+                                <label for="hmr_pacifist"> 和平主义者 (65536)</label>
                                 <div class="sub-body">
-                                    The player loses the mode if they damage or kill units (they are covered in blood to show other players what a monster they are).
+                                    如果玩家对单位造成伤害或杀死单位，将失去该模式（以显示其他玩家他们是多么可怕的怪物）。
                                 </div>
                             </div>
 							
 							 <div class="bitmask-option">
                                 <input id="hmr_int_grp_range" type="checkbox">
-                                <label for="hmr_int_grp_range"> Group Level Range (131072)</label>
+                                <label for="hmr_int_grp_range"> 组队等级范围 (131072)</label>
                                 <div class="sub-body">
-                                    The player can only group with other players within x (default 3) levels from themself (configurable).
+                                    玩家只能与自己相差x个等级（默认为3）的其他玩家组队（可配置）。
                                 </div>
                             </div>
 							
 							<div class="bitmask-option">
                                 <input id="hmr_int_talent" type="checkbox">
-                                <label for="hmr_int_talent"> Interact Talents (262144)</label>
+                                <label for="hmr_int_talent"> 与天赋交互 (262144)</label>
                                 <div class="sub-body">
-                                    The player cannot use talent points.
+                                    玩家无法使用天赋点。
                                 </div>
                             </div>
 							
 							<div class="bitmask-option">
                                 <input id="hmr_smallfish" type="checkbox">
-                                <label for="hmr_smallfish"> Small Fish (524288)</label>
+                                <label for="hmr_smallfish"> 小鱼 (524288)</label>
                                 <div class="sub-body">
-                                    The player is half the size, speed and deals half as much damage.
+                                    玩家的体型、速度和伤害减半。
                                 </div>
                             </div>
                         </div><br>
                         <div class="body">
                             <div>
                                 <input id="hm-enabled" type="checkbox">
-                                <label for="hm-enabled"> Enabled By Default</label>
+                                <label for="hm-enabled"> 默认启用</label>
                                 <div class="sub-body">
-                                    The mode is enabled by default in the table entry (it will show up in the HardMode gossip).
+                                    该模式在表项中默认启用（在 HardMode 对话中显示）。
                                 </div>
                             </div>
-                            <button class="nice-button" type="button" onclick="generateSQL()">Generate SQL </button><br><br>
+                            <button class="nice-button" type="button" onclick="generateSQL()">生成 SQL </button><br><br>
                             <div id="sql-result" class="highlight-dark"></div>
                         </div>
                     </section>
                     <section id="contact">
                         <div class="header">
-                            Contact
+                            联系方式
                         </div>
                         <div class="body">
-                            If you are having difficulty with this module or want to speak to me you can join the <a href="https://discord.gg/zpJRC2rc6G">Discord</a>. If you want to report a bug you can open an issue on the <a href="https://github.com/AnchyDev/HardMode/issues">repository</a>.
+                            如果您对该模块有任何困难或想与我交流，可以加入 <a href="https://discord.gg/zpJRC2rc6G">Discord</a>。如果您想报告错误，可以在 <a href="https://github.com/AnchyDev/HardMode/issues">仓库</a>上提交问题。
                         </div>
                     </section>
                 </div>

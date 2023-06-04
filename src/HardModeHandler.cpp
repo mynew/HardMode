@@ -47,11 +47,11 @@ void HardModeHandler::LoadHardModes()
             count++;
         } while (qResult->NextRow());
 
-        LOG_INFO("module", "Loaded '{}' rows from 'hardmode_modes' table.", count);
+        LOG_INFO("module", "从 'hardmode_modes' 表中加载了 '{}' 行。", count);
     }
     else
     {
-        LOG_INFO("module", "Loaded '0' rows from 'hardmode_modes' table.");
+        LOG_INFO("module", "从 'hardmode_modes' 表中加载了 '0' 行。");
     }
 }
 
@@ -119,7 +119,7 @@ void HardModeHandler::LoadPlayerSettings()
                 }
                 catch (const boost::bad_lexical_cast&)
                 {
-                    LOG_ERROR("module", "Detected bad mode settings format for column 'mode' and guid '{}' in 'hardmode_player_settings' table.", guid);
+                    LOG_ERROR("module", "在 'hardmode_player_settings' 表中，对于列 'mode' 和 guid '{}' 检测到了错误的模式设置格式。", guid);
                 }
             }
 
@@ -132,11 +132,11 @@ void HardModeHandler::LoadPlayerSettings()
             count++;
         } while (qResult->NextRow());
 
-        LOG_INFO("module", "Loaded '{}' rows from 'hardmode_player_settings' table.", count);
+        LOG_INFO("module", "从 'hardmode_player_settings' 表中加载了 '{}' 行。", count);
     }
     else
     {
-        LOG_INFO("module", "Loaded '0' rows from 'hardmode_player_settings' table.");
+        LOG_INFO("module", "从 'hardmode_player_settings' 表中加载了 '0' 行。");
     }
 }
 
@@ -214,11 +214,11 @@ void HardModeHandler::LoadSelfCraftExcludeIds()
             count++;
         } while (qResult->NextRow());
 
-        LOG_INFO("module", "Loaded '{}' rows from 'hardmode_selfcraft_exclude' table.", count);
+        LOG_INFO("module", "从 'hardmode_selfcraft_exclude' 表中加载了 '{}' 行。", count);
     }
     else
     {
-        LOG_INFO("module", "Loaded '0' rows from 'hardmode_selfcraft_exclude' table.");
+        LOG_INFO("module", "hardmode_selfcraft_exclude' 表中加载了 '0' 行。");
     }
 }
 
@@ -292,11 +292,11 @@ void HardModeHandler::LoadAuras()
             count++;
         } while (qResult->NextRow());
 
-        LOG_INFO("module", "Loaded '{}' rows from 'hardmode_auras' table.", count);
+        LOG_INFO("module", "从 'hardmode_auras' 表中加载了 '{}' 行。", count);
     }
     else
     {
-        LOG_INFO("module", "Loaded '0' rows from 'hardmode_auras' table.");
+        LOG_INFO("module", "从 'hardmode_auras' 表中加载了 '0' 行。");
     }
 }
 
@@ -455,11 +455,11 @@ void HardModeHandler::LoadRewards()
             count++;
         } while (qResult->NextRow());
 
-        LOG_INFO("module", "Loaded '{}' rows from 'hardmode_rewards' table.", count);
+        LOG_INFO("module", "从 'hardmode_rewards' 表中加载了 '{}' 行。", count);
     }
     else
     {
-        LOG_INFO("module", "Loaded '0' rows from 'hardmode_rewards' table.");
+        LOG_INFO("module", "从 'hardmode_rewards' 表中加载了 '0' 行。");
     }
 }
 
@@ -523,8 +523,8 @@ void HardModeHandler::RewardItems(Player* player, std::vector<HardModeReward> re
     }
 
     std::string hardModeName = sHardModeHandler->GetNameFromMode(mode);
-    std::string header = Acore::StringFormatFmt("{} Rewards", hardModeName);
-    std::string body = Acore::StringFormatFmt("Congratulations on reaching level {} on {} mode, enjoy your rewards!", player->GetLevel(), hardModeName);
+    std::string header = Acore::StringFormatFmt("{} 奖励", hardModeName);
+    std::string body = Acore::StringFormatFmt("恭喜你在 {} 模式下达到 {} 级，享受你的奖励吧！", player->GetLevel(), hardModeName);
 
     SendMailItems(player, mailItems, header, body);
 }
@@ -568,13 +568,13 @@ void HardModeHandler::SendMailItems(Player* player, std::vector<std::pair<uint32
         ItemTemplate const* itemTemplate = sObjectMgr->GetItemTemplate(itemEntry);
         if (!itemTemplate)
         {
-            LOG_ERROR("entities.player.items", "> HardModeHandler::SendMailItems: Item id {} is invalid", itemEntry);
+            LOG_ERROR("entities.player.items", "> HardModeHandler::SendMailItems: 物品 id {} 无效", itemEntry);
             return;
         }
 
         if (itemCount < 1 || (itemTemplate->MaxCount > 0 && itemCount > static_cast<uint32>(itemTemplate->MaxCount)))
         {
-            LOG_ERROR("entities.player.items", "> HardModeHandler::SendMailItems: Incorrect item count ({}) for item id {}", itemCount, itemEntry);
+            LOG_ERROR("entities.player.items", "> HardModeHandler::SendMailItems: 对于物品 id {}，物品数量（{}）不正确", itemCount, itemEntry);
             return;
         }
 
